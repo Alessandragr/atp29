@@ -1,5 +1,6 @@
 package views;
 
+
 import java.util.Scanner;
 
 import controllers.CategoriasController;
@@ -13,22 +14,17 @@ public class Main {
 
     public static void main(String[] args) {
         
-
+  
+        
+        
         menu();
-
-        Produtos produtos = new Produtos();
-        produtos.id = cadastrarId();
-        produtos.modelo = modelo();
-        produtos.ano = ano();
-        produtos.tipo = tipo();
-        produtos.voltagem = voltagem();
-        produtos.linha = linha();
-        produtos.valor = valor();
-
-
-
-    
+        case1();
+        case2();
+        case3();
+        
+       
     }
+    
     public static int menu() {
         System.out.println("------Menu de Escolhas------");
         System.out.println("Digite: \n1 - para Cadastro;\n2 - para Update;\n3 - para Delete;\n4 - para Relatório;");
@@ -96,8 +92,43 @@ public class Main {
         double valor = 0.0;
         return valor;
     }
-
-
-
+    private static int case1() {
+        ProdutosController produtosController = new ProdutosController();
+        Produtos produtos = new Produtos();
+        produtos.id = cadastrarId();
+        produtos.modelo = modelo();
+        produtos.ano = ano();
+        produtos.tipo = tipo();
+        produtos.voltagem = voltagem();
+        produtos.linha = linha();
+        produtosController.create(produtos);
+        return case1();
+    }
+        
+    private static int case2() {
+        ProdutosController produtosController = new ProdutosController();
+        Produtos produtos = new Produtos();
+        produtos.id = cadastrarId();
+        produtos.modelo = modelo();
+        produtos.ano = ano();
+        produtos.tipo = tipo();
+        produtos.voltagem = voltagem();
+        produtos.linha = linha();
+        produtosController.update(produtos);
+        return case2();
+    }
+    private static int case3() {
+        ProdutosController produtosController = new ProdutosController();
+        Produtos produtos = new Produtos();
+        produtos.id = cadastrarId();
+        produtosController.delete(produtos);
+        return case3();
+    }
+    private static int case4() {
+        Produtos produtos = new Produtos();
+        
+        System.out.println();
+        return case4();
+    }
 
 }
