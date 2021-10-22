@@ -10,7 +10,7 @@ import models.Produtos;
 public class Main {
     static Scanner scan = new Scanner(System.in);
     CategoriasController categoriasController = new CategoriasController();
-    ProdutosController produtosController = new ProdutosController();
+    static ProdutosController produtosController = new ProdutosController();
 
     public static void main(String[] args) {
         
@@ -21,6 +21,7 @@ public class Main {
         case1();
         case2();
         case3();
+        case4();
         
        
     }
@@ -43,7 +44,6 @@ public class Main {
                 System.out.println("Insira o valor do produto: ");
                 return opcao;
             case 2:
-                System.out.println("Insira o ID do produto: ");
                 System.out.println("Insira o modelo do produto: ");
                 System.out.println("Insira o ano do produto: ");
                 System.out.println("Insira o tipo de produto: ");
@@ -57,7 +57,6 @@ public class Main {
             case 4:
                 System.out.println("Informe o ID do produto: ");
                 return opcao;
-        
             default:
             System.out.println("Opção inválida!");
                 break;
@@ -88,12 +87,12 @@ public class Main {
         String linha = new String();
         return linha;
     }
-    private static double valor () {
+    private static double valor() {
         double valor = 0.0;
         return valor;
     }
     private static int case1() {
-        ProdutosController produtosController = new ProdutosController();
+        
         Produtos produtos = new Produtos();
         produtos.id = cadastrarId();
         produtos.modelo = modelo();
@@ -102,33 +101,30 @@ public class Main {
         produtos.voltagem = voltagem();
         produtos.linha = linha();
         produtosController.create(produtos);
-        return case1();
+        return 0;
     }
         
     private static int case2() {
-        ProdutosController produtosController = new ProdutosController();
         Produtos produtos = new Produtos();
-        produtos.id = cadastrarId();
         produtos.modelo = modelo();
         produtos.ano = ano();
         produtos.tipo = tipo();
         produtos.voltagem = voltagem();
         produtos.linha = linha();
+        produtos.valor= valor();
         produtosController.update(produtos);
-        return case2();
+        return 0;
     }
     private static int case3() {
-        ProdutosController produtosController = new ProdutosController();
         Produtos produtos = new Produtos();
         produtos.id = cadastrarId();
         produtosController.delete(produtos);
-        return case3();
+        return 0;
     }
     private static int case4() {
         Produtos produtos = new Produtos();
-        
-        System.out.println();
-        return case4();
+        System.out.println(produtos.toString());
+        return 0;
     }
 
 }
